@@ -31,7 +31,7 @@ mvn clean test
 
 ## Estado del CI
 
-![CI Status](https://github.com/USUARIO/REPO/workflows/CI/badge.svg)
+![CI Status](https://github.com/TheYinYan/taller-ci-junit/workflows/CI/badge.svg)
 
 ## Estructura del proyecto
 
