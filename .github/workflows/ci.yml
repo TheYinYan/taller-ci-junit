@@ -1,0 +1,50 @@
+name: CI
+
+# Cuándo se ejecuta este workflow
+on:
+  # Se ejecuta en push a las ramas main y develop
+  push:
+    branches: [ main, develop ]
+  
+  # Se ejecuta en pull requests hacia main y develop
+  pull_request:
+    branches: [ main, develop ]
+
+# Definición de trabajos (jobs)
+jobs:
+  build-and-test:
+    # Nombre descriptivo del job
+    name: Build y Test con Maven
+    
+    # Sistema operativo donde se ejecuta
+    runs-on: ubuntu-latest
+    
+    # Pasos del job
+    steps:
+      # 1. Check out del código
+      - name: Checkout código
+        uses: actions/checkout@v4
+      
+      # 2. Configurar Java
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven  # Cachea dependencias de Maven
+      
+      # 3. Compilar el proyecto
+      - name: Compilar con Maven
+        run: mvn compile
+      
+      # 4. Ejecutar tests
+      - name: Ejecutar tests
+        run: mvn test
+      
+      # 5. (Opcional) Subir resultados de tests
+      - name: Subir resultados de tests
+        if: always()  # Se ejecuta incluso si los tests fallan
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: target/surefire-reports/
