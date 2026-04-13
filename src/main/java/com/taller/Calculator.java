@@ -72,4 +72,25 @@ public class Calculator {
     public boolean isPositive(int n) {
         return n > 0;
     }
+
+    /**
+     * Calcula la potencia de un número.
+     *
+     * @param base     la base
+     * @param exponent el exponente (debe ser >= 0)
+     * @return base elevado a exponent
+     * @throws IllegalArgumentException si exponent es negativo
+     */
+    public int power(int base, int exponent) {
+        if (exponent < 0) {
+            throw new IllegalArgumentException("El exponente no puede ser negativo");
+        }
+
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
 }

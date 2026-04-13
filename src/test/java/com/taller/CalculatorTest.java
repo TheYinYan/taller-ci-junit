@@ -23,6 +23,29 @@ class CalculatorTest {
         calculator = new Calculator();
     }
 
+    // ========== Mis Tests Ej-1 =========
+
+    @Test
+    @DisplayName("Calcular potencia")
+    void testPower() {
+        int result = calculator.power(2, 3);
+        assertEquals(8, result, "2^3 debe ser 8");
+    }
+
+    @Test
+    @DisplayName("Potencia con exponente 0")
+    void testPowerWithZeroExponent() {
+        assertEquals(1, calculator.power(5, 0), "Cualquier número^0 debe ser 1");
+    }
+
+    @Test
+    @DisplayName("Potencia con exponente negativo lanza excepción")
+    void testPowerWithNegativeExponentThrowsException() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> calculator.power(2, -3));
+    }
+
     // ========== Tests de suma ==========
 
     @Test
@@ -106,10 +129,9 @@ class CalculatorTest {
     void testDivideByZeroThrowsException() {
         // Verificamos que se lanza la excepción esperada
         ArithmeticException exception = assertThrows(
-            ArithmeticException.class,
-            () -> calculator.divide(10, 0),
-            "Dividir por cero debe lanzar ArithmeticException"
-        );
+                ArithmeticException.class,
+                () -> calculator.divide(10, 0),
+                "Dividir por cero debe lanzar ArithmeticException");
 
         // Verificamos el mensaje de la excepción
         assertEquals("No se puede dividir por cero", exception.getMessage());
