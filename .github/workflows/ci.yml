@@ -48,3 +48,11 @@ jobs:
         with:
           name: test-results
           path: target/surefire-reports/
+
+      - name: Verificar formato de código
+        run: mvn validate
+
+      # Generar reporte de cobertura (avanzado)
+      - name: Generar reporte de cobertura
+        run: mvn jacoco:report
+        continue-on-error: true
