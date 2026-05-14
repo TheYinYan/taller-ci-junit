@@ -72,4 +72,4 @@ Este proyecto incluye:
 - ✅ Ejecución automática de tests en cada push/PR
 - ✅ Subida de reportes de tests como artefactos
 
-[Mi proyecto en GitHub](https://github.com/cpifpalanturinges/taller1githubactionsci-TheYinYan/blob/main/taller-ci-junit/ejercicios/Readme.md)
+[Mi Actividades del Taller](https://github.com/cpifpalanturinges/taller1githubactionsci-TheYinYan/blob/main/taller-ci-junit/ejercicios/Readme.md) // Enlace a mis actividades del taller.
